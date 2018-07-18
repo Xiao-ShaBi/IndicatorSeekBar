@@ -187,7 +187,7 @@ public class IndicatorSeekBar extends View {
         mClearPadding = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_clear_default_padding, builder.clearPadding);
         mOnlyThumbDraggable = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_only_thumb_draggable, builder.onlyThumbDraggable);
         mSeekSmoothly = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_seek_smoothly, builder.seekSmoothly);
-        canMoveToPoint = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_seek_smoothly, builder.canMoveToPoint);
+        canMoveToPoint = ta.getBoolean(R.styleable.IndicatorSeekBar_can_move_to_point, builder.canMoveToPoint);
         mR2L = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_r2l, builder.r2l);
         //track
         mBackgroundTrackSize = ta.getDimensionPixelSize(R.styleable.IndicatorSeekBar_isb_track_background_size, builder.trackBackgroundSize);
