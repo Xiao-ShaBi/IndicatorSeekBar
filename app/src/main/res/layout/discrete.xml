@@ -66,7 +66,7 @@
             android:id="@+id/custom_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isb_progress="30"
+            app:isb_progress="22"
             app:isb_seek_smoothly="true"
             app:isb_show_indicator="rounded_rectangle"
             app:isb_show_tick_marks_type="oval"

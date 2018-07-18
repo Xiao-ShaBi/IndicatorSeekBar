@@ -21,7 +21,6 @@ import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewParent;
@@ -135,6 +134,8 @@ public class IndicatorSeekBar extends View {
     private float mThumbTextY;//the thumb text's drawing Y anchor
     private int mThumbTextColor;
     private boolean mHideThumb;
+    //是否可以移动到最近的点
+    private boolean canMoveToPoint;
 
     public IndicatorSeekBar(Context context) {
         this(context, null);
@@ -186,6 +187,7 @@ public class IndicatorSeekBar extends View {
         mClearPadding = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_clear_default_padding, builder.clearPadding);
         mOnlyThumbDraggable = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_only_thumb_draggable, builder.onlyThumbDraggable);
         mSeekSmoothly = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_seek_smoothly, builder.seekSmoothly);
+        canMoveToPoint = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_seek_smoothly, builder.canMoveToPoint);
         mR2L = ta.getBoolean(R.styleable.IndicatorSeekBar_isb_r2l, builder.r2l);
         //track
         mBackgroundTrackSize = ta.getDimensionPixelSize(R.styleable.IndicatorSeekBar_isb_track_background_size, builder.trackBackgroundSize);
@@ -1365,6 +1367,9 @@ public class IndicatorSeekBar extends View {
     }
 
     private boolean autoAdjustThumb() {
+        if (canMoveToPoint) {
+            return true;
+        }
         if (mTicksCount < 3 || !mSeekSmoothly) {//it is not necessary to adjust while count less than 3 .
             return false;
         }

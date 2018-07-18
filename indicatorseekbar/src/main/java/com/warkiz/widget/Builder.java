@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -25,6 +24,7 @@ public class Builder {
     float progress = 0;
     boolean progressValueFloat = false;
     boolean seekSmoothly = false;
+    boolean canMoveToPoint = false;
     boolean r2l = false;
     boolean userSeekable = true;
     boolean onlyThumbDraggable = false;
@@ -138,6 +138,16 @@ public class Builder {
      */
     public Builder seekSmoothly(boolean seekSmoothly) {
         this.seekSmoothly = seekSmoothly;
+        return this;
+    }
+
+    /**
+     * 设置是否可以移动到最近的点
+     * @param canMoveToPoint
+     * @return
+     */
+    public Builder canMoveToPoint(boolean canMoveToPoint) {
+        this.canMoveToPoint = canMoveToPoint;
         return this;
     }
 
